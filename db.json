@@ -1,0 +1,876 @@
+{
+  "users": [
+    {
+      "name": "Nguyễn Phong Hào",
+      "email": "hao9x0159@gmail.com",
+      "phone": "0909876967",
+      "birthday": "10/05/1995",
+      "gender": true,
+      "address": "191A Chường Trinh Quận 12",
+      "type": "ADMIN",
+      "id": "1"
+    },
+    {
+      "email": "kha9x0159@gmail.com",
+      "password": "$2a$10$chjFAsgczsx74Won.nAZr.xX9Q8SKCq1cPHaK8T05dwTg94ITVyBO",
+      "name": "Nguyễn Phong Kha",
+      "phone": "0909876987",
+      "birthday": "11/05/1998",
+      "gender": true,
+      "type": "ADMIN",
+      "address": "191A Chường Trinh Quận 12",
+      "id": "2",
+      "avatar": "https://goodnessofgodministries.international/wp-content/uploads/2011/08/globe.jpg?w=300"
+    },
+    {
+      "email": "fafaf@gmail.com",
+      "password": "$2a$10$nI8m2OLntWM23Hdt3IitsueXcxAUORiC9uUZ2GkJD7G1BUBNyuH0y",
+      "name": "Giá đỗ",
+      "phone": "0366993162",
+      "birthday": "2/4/1974",
+      "gender": true,
+      "address": "Hà Nội",
+      "id": "w2U-8mY"
+    },
+    {
+      "email": "dtp@gmail.com",
+      "password": "$2a$10$7jBCDv5WXO7AlGadGI2e7OKSAmzdZ1hwFTkI0/sFWSC3lb2Ymt5aa",
+      "name": "dangphuong",
+      "phone": "0987654321",
+      "birthday": "14/8/1977",
+      "gender": true,
+      "address": "Hà Nội",
+      "id": "FFp_AhZ"
+    },
+    {
+      "email": "inumaki@gmail.com",
+      "password": "$2a$10$ZqW5FOv0uwwbQiBdh/hJkuZxriRZiYNlvOoSS785AFcER84UaeX/m",
+      "name": "TogeInumaki",
+      "phone": "0987123654",
+      "birthday": "23/10/2001",
+      "gender": true,
+      "address": "Hà Nội",
+      "id": "zCt3hcI"
+    },
+    {
+      "email": "agvaa@gmail.com",
+      "password": "$2a$10$MTExj0oJfJ06KFIglaWyneFPP294GWFyRn1jY7EryeBoJQ.ABsfW2",
+      "name": "abc",
+      "phone": "125463235262",
+      "birthday": "1/2/1971",
+      "gender": false,
+      "address": "Hà Nội",
+      "id": "xUoYONB"
+    },
+    {
+      "email": "phuongchiisai2k@gmail.com",
+      "password": "$2a$10$iXCU2.D2WiOQKLQRNS1EHutp1Mk9hC62N97yJM2uXk98nhKAcnfMC",
+      "name": "Phương",
+      "phone": "0366993162",
+      "gender": false,
+      "address": "Hà Nội",
+      "id": "9qY-w_O"
+    },
+    {
+      "email": "thuy@gmail.com",
+      "password": "$2a$10$948ErUnj8f.z/jPDGAM8P.Bx0p6iBriZf4XQB/bnzPoFLd3iekCLW",
+      "name": "La Thuy",
+      "phone": "0934657867",
+      "birthday": "1998-05-11",
+      "gender": true,
+      "type": "ADMIN",
+      "address": "An Giang",
+      "id": "r6NAVRU"
+    },
+    {
+      "email": "dtp2@gmail.com",
+      "password": "$2a$10$vbBwowYSFuAbQkrW5BzdQuQKAiGRGoYI.oQMh0oPhOB8l7MOKgfZ6",
+      "name": "Phương",
+      "phone": "0123456789",
+      "birthday": "14/4/2013",
+      "gender": false,
+      "address": "Hà Nội",
+      "id": "gsHmz_x"
+    }
+  ],
+  "products": [
+    {
+      "id": "50",
+      "name": "Barlett pear bundle",
+      "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+      "salePrice": 50,
+      "originalPrice": 75,
+      "rate": "5",
+      "rateQuatity": "3",
+      "tags": {
+        "skinTypeId": "18",
+        "ingredientTypeId": "22"
+      },
+      "productTypeId": "9",
+      "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
+    },
+    {
+      "id": "51",
+      "name": "Exfoliating Bar Soap",
+      "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+      "salePrice": 19.16,
+      "originalPrice": 26.32,
+      "tags": {
+        "skinTypeId": "18",
+        "ingredientTypeId": "19"
+      },
+      "productTypeId": "11",
+      "image": "/images/product/Exfoliating-Bar-Soap.jpg"
+    },
+    {
+      "id": "52",
+      "name": "Face Oil",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+      "salePrice": "20",
+      "originalPrice": "30",
+      "stock": 3,
+      "tags": {
+        "productTypeId": "11",
+        "skinTypeId": "18",
+        "ingredientTypeId": "22"
+      },
+      "sale": "Summer",
+      "image": "/images/product/Face-Oil_Product.jpg"
+    },
+    {
+      "id": "53",
+      "name": "Barlett pear body wash",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+      "salePrice": 20,
+      "originalPrice": 30,
+      "stock": 3,
+      "tags": {
+        "productTypeId": "11",
+        "skinTypeId": "18",
+        "ingredientTypeId": "22"
+      },
+      "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
+    },
+    {
+      "id": "54",
+      "name": "Barlett pear body wash",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+      "salePrice": 20,
+      "originalPrice": 30,
+      "stock": 3,
+      "tags": {
+        "productTypeId": "11",
+        "skinTypeId": "18",
+        "ingredientTypeId": "22"
+      },
+      "sale": "Summer",
+      "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
+    },
+    {
+      "id": "55",
+      "name": "Barlett pear body wash",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+      "salePrice": 20,
+      "originalPrice": 30,
+      "stock": 3,
+      "tags": {
+        "productTypeId": "11",
+        "skinTypeId": "18",
+        "ingredientTypeId": "22"
+      },
+      "image": "/images/product/Body-Wash_Product.jpg"
+    },
+    {
+      "id": "56",
+      "name": "Barlett pear body wash",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+      "salePrice": 20,
+      "originalPrice": 30,
+      "stock": 3,
+      "tags": {
+        "productTypeId": "11",
+        "skinTypeId": "18",
+        "ingredientTypeId": "22"
+      },
+      "sale": "Summer",
+      "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
+    },
+    {
+      "id": "57",
+      "name": "Face Oil",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+      "salePrice": 50,
+      "originalPrice": 80,
+      "stock": 3,
+      "tags": {
+        "productTypeId": "11",
+        "skinTypeId": "18",
+        "ingredientTypeId": "22"
+      },
+      "image": "/images/product/Face-Oil_Product.jpg"
+    },
+    {
+      "id": "58",
+      "name": "Face Oil",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+      "salePrice": 30,
+      "originalPrice": 50,
+      "stock": 3,
+      "tags": {
+        "productTypeId": "11",
+        "skinTypeId": "18",
+        "ingredientTypeId": "22"
+      },
+      "image": "/images/product/Face-Oil_Product.jpg"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "24",
+      "userId": "1",
+      "rate": "5",
+      "headContent": "Your skin will thank you",
+      "content": "I started using this serum twice a week and now use it almost every night. My skin feels very smooth and hydrated in the morning. I do have a very sensitive skin and it tingled a bit at first, but I had no redness or other issues.",
+      "productId": "56"
+    },
+    {
+      "id": "25",
+      "userId": "2",
+      "rate": "5",
+      "head-content": "Your skin will thank you",
+      "content": "I started using this serum twice a week and now use it almost every night. My skin feels very smooth and hydrated in the morning. I do have a very sensitive skin and it tingled a bit at first, but I had no redness or other issues.",
+      "productId": "50"
+    },
+    {
+      "id": "26",
+      "userId": "1",
+      "rate": "5",
+      "head-content": "Your skin will thank you",
+      "content": "I started using this serum twice a week and now use it almost every night. My skin feels very smooth and hydrated in the morning. I do have a very sensitive skin and it tingled a bit at first, but I had no redness or other issues.",
+      "productId": "53"
+    },
+    {
+      "id": "27",
+      "userId": "2",
+      "rate": "5",
+      "head-content": "Your skin will thank you",
+      "content": "I started using this serum twice a week and now use it almost every night. My skin feels very smooth and hydrated in the morning. I do have a very sensitive skin and it tingled a bit at first, but I had no redness or other issues.",
+      "productId": "51"
+    }
+  ],
+  "blogs": [
+    {
+      "id": "200",
+      "name": "15 common mistakes everyone makes in skin care",
+      "type": "Skincare",
+      "description": "Let's talk about skin care. Your face is your identity. It's the first thing people notice about you, and it's the first thing they form an impression based on. So what can you do to maintain a healthy complexion that will make you look your best?A few simple changes can make a big difference in how your skin looks and feels.",
+      "author": "J.Magna",
+      "date": "25/3/2024"
+    },
+    {
+      "id": "201",
+      "name": "5 best anti-aging skincare products",
+      "type": "Skincare",
+      "description": "Your face is your identity. It's the first thing people notice about you, and it's healthy complexion that will make you look your best?",
+      "author": "I.Toge",
+      "date": "7/3/2024"
+    },
+    {
+      "id": "202",
+      "name": "6 ways to up your skincare game",
+      "type": "Skincare",
+      "description": "6 ways to up your skincare",
+      "author": "I.Fang",
+      "date": "18/3/2024"
+    },
+    {
+      "id": "203",
+      "name": "Natural beauty product skin care: the ultimate guide",
+      "type": "Skincare",
+      "description": "It also provides an overall brighter appearance by revealing smoother skin underneath all those layers of grime we tend to accumulate over time—especially during winter months when everything seems to get even more covered up than usual!",
+      "author": "T.Feng",
+      "date": "18/3/2024"
+    },
+    {
+      "id": "204",
+      "name": "The latest tips &amp; tricks that you've never heard of",
+      "type": "Skincare",
+      "description": "It's so easy to forget that what we put on our skin goes into our bodies—and that's why we're here for you! We know that when you care for your body, you feel better about yourself. We also know that when you feel good about yourself, everything else in life gets a little bit easier.",
+      "author": "T.Feng",
+      "date": "18/3/2024"
+    }
+  ],
+  "types": [
+    {
+      "id": "10",
+      "name": "Body Lotion",
+      "subTitle": "Smooth feel",
+      "type": "Product",
+      "image": "/images/product/Body-Lotion.jpg"
+    },
+    {
+      "id": "11",
+      "name": "Body Wash",
+      "subTitle": "Best in class",
+      "image": "/images/product/Body-Wash_Product.jpg",
+      "type": "Product"
+    },
+    {
+      "id": "12",
+      "name": "Face Oil",
+      "subTitle": "Oily",
+      "image": "/images/product/Face-Oil_Product.jpg",
+      "type": "Product"
+    },
+    {
+      "id": "13",
+      "name": "Perfume",
+      "subTitle": "Supper smell",
+      "image": "/images/product/Perfume_Product.jpg",
+      "type": "Product"
+    },
+    {
+      "id": "14",
+      "name": "Normal",
+      "type": "Skin Type"
+    },
+    {
+      "id": "15",
+      "name": "Dry",
+      "type": "Skin Type"
+    },
+    {
+      "id": "16",
+      "name": "Oily",
+      "type": "Skin Type"
+    },
+    {
+      "id": "17",
+      "name": "Sensitive",
+      "type": "Skin Type"
+    },
+    {
+      "id": "18",
+      "name": "All Skin Types",
+      "type": "Skin Type"
+    },
+    {
+      "id": "19",
+      "name": "Summer Lily",
+      "type": "Ingredient",
+      "subTitle": "Best Seller",
+      "image": "/images/ingredients/Summer_Lily.jpg"
+    },
+    {
+      "id": "20",
+      "name": "Barlett pear",
+      "type": "Ingredient",
+      "subTitle": "New Season",
+      "image": "/images/ingredients/pear_category.jpg"
+    },
+    {
+      "id": "21",
+      "name": "Eucalyptus",
+      "type": "Ingredient",
+      "subTitle": "Refreshing",
+      "image": "/images/ingredients/eucalyptus.jpg"
+    },
+    {
+      "id": "22",
+      "name": "Orange",
+      "type": "Ingredient",
+      "image": "/images/ingredients/eucalyptus.jpg"
+    },
+    {
+      "id": "23",
+      "name": "Lemon",
+      "type": "Ingredient",
+      "image": "/images/ingredients/eucalyptus.jpg"
+    },
+    {
+      "id": "24",
+      "name": "White Peach",
+      "type": "Ingredient",
+      "image": "/images/ingredients/eucalyptus.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": "50",
+            "originalPrice": "75",
+            "stock": 5,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
+          }
+        ]
+      },
+      "id": 3
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": "19.16",
+            "originalPrice": "26.32",
+            "stock": 3,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
+            "quantity": 1
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 4
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": "19.16",
+            "originalPrice": "26.32",
+            "stock": 3,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
+            "quantity": 1
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 5
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": "50",
+            "originalPrice": "75",
+            "stock": 5,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 6
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": "50",
+            "originalPrice": "75",
+            "stock": 5,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
+          },
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": "19.16",
+            "originalPrice": "26.32",
+            "stock": 3,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
+            "quantity": 3
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 7
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": "50",
+            "originalPrice": "75",
+            "stock": 5,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 3
+          },
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": "19.16",
+            "originalPrice": "26.32",
+            "stock": 3,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
+            "quantity": 3
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 8
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": "50",
+            "originalPrice": "75",
+            "stock": 5,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 2
+          },
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": "19.16",
+            "originalPrice": "26.32",
+            "stock": 3,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
+            "quantity": 3
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 0
+          }
+        ]
+      },
+      "id": 9
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": "50",
+            "originalPrice": "75",
+            "stock": 5,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 5
+          },
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": "19.16",
+            "originalPrice": "26.32",
+            "stock": 3,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
+            "quantity": 2
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 10
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": "50",
+            "originalPrice": "75",
+            "stock": 5,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 11
+    }
+  ],
+  "carts": [
+    {
+      "userId": "9qY-w_O",
+      "detail": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": 50,
+            "originalPrice": 75,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 7
+          },
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": 19.16,
+            "originalPrice": 26.32,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
+            "quantity": 2
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 2
+          }
+        ]
+      },
+      "id": 1
+    }
+  ]
+}
