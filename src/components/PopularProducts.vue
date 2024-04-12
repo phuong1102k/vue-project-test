@@ -20,6 +20,7 @@
           v-for="(popularProduct, idx) in productBestSellerList"
           :key="idx"
           :item="popularProduct"
+          :userInfo="userLogin"
         ></PopularProductsItem>
       </div>
     </div>
@@ -27,9 +28,9 @@
 </template>
 
 <script>
-// import { useStore } from "vuex";
-// import { computed } from "vue";
 import PopularProductsItem from "@/components/PopularProductsItem.vue";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "PopularProducts",
@@ -39,16 +40,22 @@ export default {
   components: {
     PopularProductsItem,
   },
-  setup(props) {
-    const productBestSellerList = [];
-    // const router = useRouter();
-    // console.log(props);
 
-    for (let i = 0; i < 6; i++) {
-      productBestSellerList.push(props.productList[i]);
-    }
+  setup(props) {
+    const store = useStore();
+    const userLogin = computed(() => store.state.auth.userLogin);
+
+    const productBestSellerList = computed(() => {
+      const productBestSeller = [];
+      for (let i = 0; i < 6; i++) {
+        productBestSeller.push(props.productList[i]);
+      }
+      return productBestSeller;
+    });
+
     return {
       productBestSellerList,
+      userLogin,
     };
   },
 };

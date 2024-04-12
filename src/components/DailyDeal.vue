@@ -16,7 +16,7 @@
         </div>
 
         <div class="daily-product-list">
-          <div class="item" v-for="(item, idx) in productDaily" :key="idx">
+          <div class="item" v-for="(item, idx) in productDailyList" :key="idx">
             <a class="img-cover" @click="handleClickProduct(item.id)">
               <img v-if="item.image" :src="item.image" alt="product_daily" />
             </a>
@@ -191,20 +191,15 @@ export default {
       router.push(`/product-detail/${id}`);
     };
 
-    const productDaily = [];
+    const productDailyList = computed(() => {
+      const productDaily = [];
+      for (let i = 0; i < 3; i++) {
+        productDaily.push(props.productList[i]);
+      }
+      return productDaily;
+    });
 
-    for (var i = 0; i < 3; i++) {
-      productDaily.push(props.productList[i]);
-    }
-
-    // store.dispatch("carts/getAllCartListAction");
-
-    // const cartList = computed(() => store.state.carts.allCartList);
-
-    // store.dispatch("carts/getCartListAction", props.user.user.id);
-    // const cartList = store.state.carts.cartList;
     const cartList = computed(() => store.state.carts.cartList);
-    // const cartList = [];
 
     function addProduct(product) {
       if (!localStorage.getItem("userLogin")) {
@@ -221,10 +216,6 @@ export default {
           },
         };
 
-        // const data = product;
-
-        // console.log(data);
-        // const userId = props.user.user.id;
         store.dispatch("carts/addNewCartAction", data);
       } else {
         let productId = [];
@@ -275,7 +266,7 @@ export default {
     }
 
     return {
-      productDaily,
+      productDailyList,
       cartList,
       handleClickProduct,
       addProduct,

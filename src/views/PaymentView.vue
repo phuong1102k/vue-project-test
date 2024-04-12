@@ -11,7 +11,6 @@
           <span>Payment</span>
         </div>
         <form class="payment-detail" @submit.prevent="orderHandle">
-          <!-- @submit.prevent="orderHandle" -->
           <div class="address">
             <table>
               <tr>
@@ -57,7 +56,7 @@
                   <td>Item Subtotal</td>
                 </tr>
               </thead>
-              <tbody v-for="(cart, idx) in cartList" :key="idx">
+              <tbody v-for="(cart, idx) in cartListDetail" :key="idx">
                 <tr>
                   <td class="item">
                     <div class="image-cover">
@@ -76,7 +75,10 @@
                     <div>{{ cart.quantity }}</div>
                     <div class="quantity-picker">
                       <div class="quantity">
-                        <div class="input-quantity">
+                        <div
+                          class="input-quantity"
+                          style="justify-content: center; display: flex"
+                        >
                           <button
                             aria-label="Decrease"
                             class="math-sign"
@@ -116,7 +118,7 @@
                   <td>Info Money</td>
                 </tr>
               </thead>
-              <tbody v-for="(cart, idx) in cartList" :key="idx">
+              <tbody v-for="(cart, idx) in cartListDetail" :key="idx">
                 <tr>
                   <td class="item">
                     <div class="image-cover">
@@ -132,10 +134,13 @@
                     >
                   </td>
                   <td class="unit">
-                    <div>1</div>
+                    <div>{{ cart.quantity }}</div>
                     <div class="quantity-picker">
                       <div class="quantity">
-                        <div class="input-quantity">
+                        <div
+                          class="input-quantity"
+                          style="justify-content: center; display: flex"
+                        >
                           <button
                             aria-label="Decrease"
                             class="math-sign"
@@ -194,7 +199,7 @@
             </div>
 
             <div class="total">
-              Order Total ({{ cartList.length }} item):
+              Order Total ({{ cartListDetail.length }} item):
               <span>${{ total }}</span>
             </div>
           </div>
@@ -221,8 +226,16 @@ export default {
   setup() {
     const store = useStore();
     const router = useRouter();
-    store.dispatch("auth/loadUserLoginFromLocalStorageAction");
+
     const userLogin = computed(() => store.state.auth.userLogin);
+
+    const cartList = computed(() => store.state.carts.cartList);
+
+    const cartListDetail = computed(() =>
+      cartList.value && cartList.value[0]
+        ? cartList.value[0].detail.cartList
+        : []
+    );
 
     const orderInfomation = reactive({
       name: userLogin.value.user.name,
@@ -231,25 +244,21 @@ export default {
       message: "",
     });
 
-    const cartList = computed(() => store.state.carts.cartList);
-    // const cartList = store.state.carts.cartList;
-    // const cartList = !localStorage.getItem("cartList")
-    //   ? []
-    //   : computed(() => JSON.parse(localStorage.getItem("cartList")));
+    // const cartList = computed(() => store.state.carts.cartList);
     // function addQuantity(product) {
-    //   for (let i = 0; i < cartList.length; i++) {
-    //     if (cartList[i].id == product.id) {
-    //       cartList[i].quantity++;
+    //   for (let i = 0; i < cartListDetail.length; i++) {
+    //     if (cartListDetail[i].id == product.id) {
+    //       cartListDetail[i].quantity++;
     //     }
     //   }
     // }
 
     // function subtractQuantity(product) {
-    //   for (let i = 0; i < cartList.length; i++) {
-    //     if (cartList[i].id == product.id) {
-    //       cartList[i].quantity--;
+    //   for (let i = 0; i < cartListDetail.length; i++) {
+    //     if (cartListDetail[i].id == product.id) {
+    //       cartListDetail[i].quantity--;
 
-    //       if (cartList[i].quantity == 0) {
+    //       if (cartListDetail[i].quantity == 0) {
     //         cartList.value.splice(i, 1);
     //       }
     //     }
@@ -258,19 +267,19 @@ export default {
 
     const total = ref(0);
     const shippingFee = ref(0);
-    // const totalPrice = () => {
-    //   for (let i = 0; i < cartList.value.length; i++) {
-    //     total.value += cartList.value[i].quantity * cartList.value[i].salePrice;
-    //   }
-    //   if (total.value < 100 && total.value > 0) {
-    //     shippingFee.value = 10;
-    //   } else if (total.value > 100) {
-    //     shippingFee.value = 15;
-    //   }
-    //   total.value = total.value + shippingFee.value;
-    // };
+    const totalPrice = () => {
+      for (let i = 0; i < cartList.value.length; i++) {
+        total.value += cartList.value[i].quantity * cartList.value[i].salePrice;
+      }
+      if (total.value < 100 && total.value > 0) {
+        shippingFee.value = 10;
+      } else if (total.value > 100) {
+        shippingFee.value = 15;
+      }
+      total.value = total.value + shippingFee.value;
+    };
 
-    // totalPrice();
+    totalPrice();
 
     const orderHandle = () => {
       const data = {
@@ -291,7 +300,7 @@ export default {
 
     return {
       userLogin,
-      cartList,
+      cartListDetail,
       orderHandle,
       orderInfomation,
       total,

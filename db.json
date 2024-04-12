@@ -836,28 +836,44 @@
             },
             "productTypeId": "9",
             "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
-            "quantity": 7
-          },
-          {
-            "id": "51",
-            "name": "Exfoliating Bar Soap",
-            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
-            "salePrice": 19.16,
-            "originalPrice": 26.32,
-            "tags": {
-              "skinTypeId": "18",
-              "ingredientTypeId": "19"
-            },
-            "productTypeId": "11",
-            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
             "quantity": 2
           },
           {
-            "id": "52",
-            "name": "Face Oil",
+            "id": "53",
+            "name": "Barlett pear body wash",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
-            "salePrice": "20",
-            "originalPrice": "30",
+            "salePrice": 20,
+            "originalPrice": 30,
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 2
+          },
+          {
+            "id": "55",
+            "name": "Barlett pear body wash",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": 20,
+            "originalPrice": 30,
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "image": "/images/product/Body-Wash_Product.jpg",
+            "quantity": 1
+          },
+          {
+            "id": "54",
+            "name": "Barlett pear body wash",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": 20,
+            "originalPrice": 30,
             "stock": 3,
             "tags": {
               "productTypeId": "11",
@@ -865,8 +881,8 @@
               "ingredientTypeId": "22"
             },
             "sale": "Summer",
-            "image": "/images/product/Face-Oil_Product.jpg",
-            "quantity": 2
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
           }
         ]
       },

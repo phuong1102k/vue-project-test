@@ -211,7 +211,7 @@
           </router-link>
         </span>
 
-        <TheCart :cart="cartList"></TheCart>
+        <TheCart :cart="cartList" :userInfo="userLogin"></TheCart>
       </div>
 
       <div class="navbar-mobile">
@@ -465,9 +465,9 @@
               <i class="fa-solid fa-circle-user"></i>
             </router-link>
           </span>
-
+          <div></div>
           <!-- cart -->
-          <TheCart :cart="cartList"></TheCart>
+          <TheCart :cart="cartList" :userInfo="userLogin"></TheCart>
         </div>
       </div>
     </div>
@@ -627,6 +627,11 @@ export default {
   .subtab-list-item {
     padding-left: 1.6rem;
   }
+}
+
+.right {
+  display: flex;
+  gap: 5px;
 }
 
 .user {
