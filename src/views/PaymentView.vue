@@ -112,7 +112,6 @@
               <thead>
                 <tr>
                   <th>Product</th>
-
                   <td>Unit Price</td>
                   <td>Quantity</td>
                   <td>Info Money</td>
@@ -186,7 +185,6 @@
                   <div>Shipping Option</div>
                   <div>
                     <p>Nhanh</p>
-                    <p>Get by 5/4 - 6/4</p>
                   </div>
 
                   <div>${{ shippingFee }}</div>
@@ -244,7 +242,6 @@ export default {
       message: "",
     });
 
-    // const cartList = computed(() => store.state.carts.cartList);
     // function addQuantity(product) {
     //   for (let i = 0; i < cartListDetail.length; i++) {
     //     if (cartListDetail[i].id == product.id) {
@@ -265,11 +262,63 @@ export default {
     //   }
     // }
 
+    function addQuantity(product) {
+      for (let i = 0; i < cartListDetail.value.length; i++) {
+        if (cartListDetail.value[i].id == product.id) {
+          // alert(cartList.value[0].detail.cartList[i].id == product.id);
+          cartListDetail.value[i].quantity++;
+
+          const data = {
+            userId: userLogin.value.user.id,
+            detail: {
+              cartList: cartListDetail.value,
+            },
+          };
+          const cartId = cartList.value[0].id;
+          // store.dispatch("carts/updateCartAction", { cartId, data });
+          store.dispatch("carts/updateCartAction", { cartId, payload: data });
+        }
+      }
+    }
+
+    function subtractQuantity(product) {
+      for (let i = 0; i < cartListDetail.value.length; i++) {
+        if (cartListDetail.value[i].id == product.id) {
+          cartListDetail.value[i].quantity--;
+
+          const data = {
+            userId: userLogin.value.user.id,
+            detail: {
+              cartList: cartListDetail.value,
+            },
+          };
+          const cartId = cartList.value[0].id;
+
+          store.dispatch("carts/updateCartAction", { cartId, payload: data });
+
+          if (cartListDetail.value[i].quantity == 0) {
+            cartListDetail.value.splice(i, 1);
+
+            const data = {
+              userId: userLogin.value.user.id,
+              detail: {
+                cartList: cartListDetail.value,
+              },
+            };
+            const cartId = cartList.value[0].id;
+
+            store.dispatch("carts/updateCartAction", { cartId, payload: data });
+          }
+        }
+      }
+    }
+
     const total = ref(0);
     const shippingFee = ref(0);
     const totalPrice = () => {
-      for (let i = 0; i < cartList.value.length; i++) {
-        total.value += cartList.value[i].quantity * cartList.value[i].salePrice;
+      for (let i = 0; i < cartListDetail.value.length; i++) {
+        total.value +=
+          cartListDetail.value[i].quantity * cartListDetail.value[i].salePrice;
       }
       if (total.value < 100 && total.value > 0) {
         shippingFee.value = 10;
@@ -292,7 +341,7 @@ export default {
         cart: {
           cartList,
         },
-        // totalPrice:
+        totalPrice: total.value,
       };
 
       store.dispatch("orders/orderAction", { data, router });
@@ -306,8 +355,8 @@ export default {
       total,
       shippingFee,
 
-      // addQuantity,
-      // subtractQuantity,
+      addQuantity,
+      subtractQuantity,
     };
   },
 };
@@ -406,7 +455,7 @@ td {
 
 .order {
   float: right;
-  margin-right: var(--pd-inline);
+  margin-right: var(--pd-item);
   font-size: 2rem;
   border-radius: var(--border-radius);
   padding: calc(var(--pd-inline) / 2) var(--pd-inline);
