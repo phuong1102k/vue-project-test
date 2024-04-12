@@ -136,7 +136,7 @@
                       >
                         <i class="fa-solid fa-minus"></i>
                       </button>
-                      <span class="num quantity">{{ cart.quantity }}</span>
+                      <span class="num quantity">{{ cart.quantity ?? 'mieo' }}</span>
 
                       <span aria-live="polite" class="quantity-text">1</span>
 
@@ -194,7 +194,7 @@ export default {
     const store = useStore();
     const cartList = computed(() => props.cart);
 
-    const cartListDetail = computed(() => cartList.value[0].detail.cartList);
+    const cartListDetail = computed(() => cartList && cartList.value[0] ? cartList.value[0].detail.cartList : []);
 
     function addQuantity(product) {
       for (let i = 0; i < cartListDetail.value.length; i++) {

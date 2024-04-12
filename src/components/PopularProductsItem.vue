@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div v-if="item && item.image && item.name" class="item">
     <a class="image-cover" @click="handleClickProduct">
       <img :src="item.image" alt="best product" />
     </a>

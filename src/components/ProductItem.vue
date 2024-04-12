@@ -189,7 +189,7 @@
               >
                 <i class="fa-solid fa-minus"></i>
               </button>
-              <span class="num quantity">{{ cart.quantity }}</span>
+              <span class="num quantity">{{ cart.quantity ?? 'mieo' }}</span>
 
               <span aria-live="polite" class="quantity-text">1</span>
 

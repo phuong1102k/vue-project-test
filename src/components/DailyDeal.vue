@@ -1,6 +1,6 @@
 <template>
   <!-- daily deal -->
-  <div class="daily">
+  <div v-if="item && item.image && item.name" class="daily">
     <div class="wrapper">
       <div class="daily-product">
         <div class="base-caption">
@@ -18,7 +18,7 @@
         <div class="daily-product-list">
           <div class="item" v-for="(item, idx) in productDaily" :key="idx">
             <a class="img-cover" @click="handleClickProduct(item.id)">
-              <img :src="item.image" alt="product_daily" />
+              <img v-if="item.image" :src="item.image" alt="product_daily" />
             </a>
 
             <div class="daily-product-detail">

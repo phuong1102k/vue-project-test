@@ -5,15 +5,17 @@
     :key="idx"
     :ingredient="ingredient"
   >
-    <div class="image-cover">
-      <img :src="ingredient.image" alt="lilly" />
-    </div>
-    <div class="base-banner-caption">
-      <p class="base-subtitle">{{ ingredient.subTitle }}</p>
+    <div v-if="ingredient && ingredient.image && ingredient.subTitle">
+      <div class="image-cover">
+        <img :src="ingredient.image" alt="lilly" />
+      </div>
+      <div class="base-banner-caption">
+        <p class="base-subtitle">{{ ingredient.subTitle }}</p>
 
-      <h1 class="base-title">{{ ingredient.name }}</h1>
+        <h1 class="base-title">{{ ingredient.name }}</h1>
 
-      <router-link to="/products" class="base-btn">Shop now</router-link>
+        <router-link to="/products" class="base-btn">Shop now</router-link>
+      </div>
     </div>
   </div>
 </template>

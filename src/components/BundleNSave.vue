@@ -1,6 +1,6 @@
 <template>
   <!-- bundle and save -->
-  <div class="bundle">
+  <div v-if="productBundle && productBundle.image" class="bundle">
     <div class="wrapper">
       <div class="base-caption">
         <div class="text">
