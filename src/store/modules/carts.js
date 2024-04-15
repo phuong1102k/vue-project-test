@@ -54,33 +54,8 @@ const actions = {
 
   async updateCartAction(context, { cartId, payload }) {
     const data = await updateCartAPI(cartId, payload);
-    // console.log(payload);
-    // console.log(cartId);
     context.commit("setUpdateCartMutation", data);
   },
-
-  // async addCartAction(context, payload) {
-  //   const data = await addCartAPI(payload);
-  //   context.commit("setAddCartMutation", data);
-  // },
-
-  // async subtractCartAction(context, payload) {
-  //   const data = await subtractCartAPI(payload);
-  //   context.commit("setSubtractCartMutation", data);
-  // },
-
-  // async deleteCartAction(context, payload) {
-  //   const data = await deleteCartAPI(payload);
-  //   context.commit("setDeleteCartMutation", data);
-  // },
-
-  // loadUserLoginFromLocalStorageAction({ commit }) {
-  //   let userLogin = {};
-  //   if (localStorage.getItem("userLogin")) {
-  //     userLogin = JSON.parse(localStorage.getItem("userLogin"));
-  //   }
-  //   commit("setUserLoginFromLocalStorage", userLogin);
-  // },
 }; //action call api
 
 export default {

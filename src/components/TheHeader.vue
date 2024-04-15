@@ -172,8 +172,8 @@
             <ul class="subnav-list">
               <span class="subnav-tip"></span>
               <li class="subnav">
-                <a href="./about.html"
-                  ><i class="fa-solid fa-angle-right"></i>About</a
+                <router-link to="/about">
+                  <i class="fa-solid fa-angle-right"></i>About</router-link
                 >
               </li>
 
@@ -412,8 +412,9 @@
                 >
                   <ul class="subnav-list">
                     <li class="subnav">
-                      <a href="./about.html"
-                        ><i class="fa-solid fa-angle-right"></i>About</a
+                      <router-link to="/about">
+                        <i class="fa-solid fa-angle-right"></i
+                        >About</router-link
                       >
                     </li>
 

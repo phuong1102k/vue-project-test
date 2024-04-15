@@ -73,7 +73,7 @@
                   </td>
                   <td class="unit">
                     <div>{{ cart.quantity }}</div>
-                    <div class="quantity-picker">
+                    <!-- <div class="quantity-picker">
                       <div class="quantity">
                         <div
                           class="input-quantity"
@@ -101,7 +101,7 @@
                           </button>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </td>
                   <td>${{ cart.quantity * cart.salePrice }}</td>
                 </tr>
@@ -134,7 +134,7 @@
                   </td>
                   <td class="unit">
                     <div>{{ cart.quantity }}</div>
-                    <div class="quantity-picker">
+                    <!-- <div class="quantity-picker">
                       <div class="quantity">
                         <div
                           class="input-quantity"
@@ -162,7 +162,7 @@
                           </button>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </td>
                   <td>${{ cart.quantity * cart.salePrice }}</td>
                 </tr>
@@ -184,7 +184,7 @@
                 <div class="shipping">
                   <div>Shipping Option</div>
                   <div>
-                    <p>Nhanh</p>
+                    <p>Fast Shipping</p>
                   </div>
 
                   <div>${{ shippingFee }}</div>
@@ -221,6 +221,10 @@ export default {
     BenifitBar,
   },
 
+  // mounted() {
+  //   this.totalPrice();
+  // },
+
   setup() {
     const store = useStore();
     const router = useRouter();
@@ -243,84 +247,89 @@ export default {
     });
 
     // function addQuantity(product) {
-    //   for (let i = 0; i < cartListDetail.length; i++) {
-    //     if (cartListDetail[i].id == product.id) {
-    //       cartListDetail[i].quantity++;
+    //   console.log(cartListDetail.value.length);
+    //   for (let i = 0; i < cartListDetail.value.length; i++) {
+    //     if (cartListDetail.value[i].id == product.id) {
+    //       // alert(cartList.value[0].detail.cartList[i].id == product.id);
+    //       cartListDetail.value[i].quantity++;
+
+    //       const data = {
+    //         userId: userLogin.value.user.id,
+    //         detail: {
+    //           cartList: cartListDetail.value,
+    //         },
+    //       };
+    //       const cartId = cartList.value[0].id;
+    //       // store.dispatch("carts/updateCartAction", { cartId, data });
+    //       store.dispatch("carts/updateCartAction", { cartId, payload: data });
     //     }
     //   }
     // }
 
     // function subtractQuantity(product) {
-    //   for (let i = 0; i < cartListDetail.length; i++) {
-    //     if (cartListDetail[i].id == product.id) {
-    //       cartListDetail[i].quantity--;
+    //   for (let i = 0; i < cartListDetail.value.length; i++) {
+    //     if (cartListDetail.value[i].id == product.id) {
+    //       cartListDetail.value[i].quantity--;
 
-    //       if (cartListDetail[i].quantity == 0) {
-    //         cartList.value.splice(i, 1);
+    //       const data = {
+    //         userId: userLogin.value.user.id,
+    //         detail: {
+    //           cartList: cartListDetail.value,
+    //         },
+    //       };
+    //       const cartId = cartList.value[0].id;
+
+    //       store.dispatch("carts/updateCartAction", { cartId, payload: data });
+
+    //       if (cartListDetail.value[i].quantity == 0) {
+    //         cartListDetail.value.splice(i, 1);
+
+    //         const data = {
+    //           userId: userLogin.value.user.id,
+    //           detail: {
+    //             cartList: cartListDetail.value,
+    //           },
+    //         };
+    //         const cartId = cartList.value[0].id;
+
+    //         store.dispatch("carts/updateCartAction", { cartId, payload: data });
     //       }
     //     }
     //   }
     // }
 
-    function addQuantity(product) {
-      for (let i = 0; i < cartListDetail.value.length; i++) {
-        if (cartListDetail.value[i].id == product.id) {
-          // alert(cartList.value[0].detail.cartList[i].id == product.id);
-          cartListDetail.value[i].quantity++;
+    const today = new Date();
+    const date = () => {
+      const date = new Date(today);
 
-          const data = {
-            userId: userLogin.value.user.id,
-            detail: {
-              cartList: cartListDetail.value,
-            },
-          };
-          const cartId = cartList.value[0].id;
-          // store.dispatch("carts/updateCartAction", { cartId, data });
-          store.dispatch("carts/updateCartAction", { cartId, payload: data });
-        }
-      }
-    }
+      date.setDate(date.getDate() + 1);
 
-    function subtractQuantity(product) {
-      for (let i = 0; i < cartListDetail.value.length; i++) {
-        if (cartListDetail.value[i].id == product.id) {
-          cartListDetail.value[i].quantity--;
+      let year = date.getFullYear();
+      let month = String(date.getMonth() + 1).padStart(2, "0"); // Cần thêm 1 vào vì tháng trong JavaScript bắt đầu từ 0
+      let day = String(date.getDate()).padStart(2, "0");
+      const fomatDay = `${day}/${month}/${year}`;
 
-          const data = {
-            userId: userLogin.value.user.id,
-            detail: {
-              cartList: cartListDetail.value,
-            },
-          };
-          const cartId = cartList.value[0].id;
+      return fomatDay;
+    };
 
-          store.dispatch("carts/updateCartAction", { cartId, payload: data });
-
-          if (cartListDetail.value[i].quantity == 0) {
-            cartListDetail.value.splice(i, 1);
-
-            const data = {
-              userId: userLogin.value.user.id,
-              detail: {
-                cartList: cartListDetail.value,
-              },
-            };
-            const cartId = cartList.value[0].id;
-
-            store.dispatch("carts/updateCartAction", { cartId, payload: data });
-          }
-        }
-      }
-    }
+    const now = date();
 
     const total = ref(0);
     const shippingFee = ref(0);
+
     const totalPrice = () => {
+      // const cartListD = store.state.carts.cartList;
+      // console.log(cartListD);
+      console.log(cartListDetail.value);
+
       for (let i = 0; i < cartListDetail.value.length; i++) {
+        // console.log(cartListDetail.value[i].quantity);
+        // console.log(cartListDetail.value[i].salePrice);
         total.value +=
           cartListDetail.value[i].quantity * cartListDetail.value[i].salePrice;
       }
-      if (total.value < 100 && total.value > 0) {
+
+      if (total.value <= 100 && total.value > 0) {
         shippingFee.value = 10;
       } else if (total.value > 100) {
         shippingFee.value = 15;
@@ -338,9 +347,11 @@ export default {
         address: orderInfomation.address,
         phone: orderInfomation.phone,
         message: orderInfomation.message,
+        orderDay: now,
         cart: {
-          cartList,
+          cartList: cartListDetail.value,
         },
+        shippingFee: shippingFee.value,
         totalPrice: total.value,
       };
 
@@ -348,6 +359,7 @@ export default {
     };
 
     return {
+      totalPrice,
       userLogin,
       cartListDetail,
       orderHandle,
@@ -355,8 +367,8 @@ export default {
       total,
       shippingFee,
 
-      addQuantity,
-      subtractQuantity,
+      // addQuantity,
+      // subtractQuantity,
     };
   },
 };

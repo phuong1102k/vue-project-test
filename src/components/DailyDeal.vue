@@ -1,6 +1,7 @@
 <template>
   <!-- daily deal -->
-  <div v-if="item && item.image && item.name" class="daily">
+  <div class="daily" v-if="item && item.image && item.name">
+    <!-- v-if="item && item.image && item.name" -->
     <div class="wrapper">
       <div class="daily-product">
         <div class="base-caption">
@@ -282,6 +283,7 @@ export default {
 <style lang="scss">
 .daily-product-detail {
   .product-desc {
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;

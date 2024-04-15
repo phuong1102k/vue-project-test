@@ -29,7 +29,7 @@
           <div class="tab-pane" :class="{ active: activeTab === 'tab1' }">
             <h2>Manage and protect your account</h2>
 
-            <div class="user-profile-detail">
+            <form class="user-profile-detail">
               <div>Name</div>
               <div><input type="text" :value="userLogin.user.name" /></div>
               <div>Email</div>
@@ -40,30 +40,26 @@
               <div>{{ userLogin.user.address }}</div>
               <div>Gender</div>
               <div>
-                <label for="male"
-                  ><input
-                    id="male"
-                    type="radio"
-                    value="male"
-                    checked
-                  />Male</label
-                >
-                <label for="female"
-                  ><input
-                    id="female"
-                    type="radio"
-                    value="female"
-                  />Female</label
-                >
-                <label for="other"
-                  ><input id="other" type="radio" value="other" />Other</label
-                >
+                <label>
+                  <input type="radio" name="gender" value="male" checked />
+                  Male
+                </label>
+
+                <label>
+                  <input type="radio" name="gender" value="female" />
+                  Female
+                </label>
+
+                <label>
+                  <input type="radio" name="gender" value="other" />
+                  Other
+                </label>
               </div>
               <div></div>
               <div>
                 <button class="base-btn">Save</button>
               </div>
-            </div>
+            </form>
 
             <div class="log-out">
               <button class="base-btn" @click="handleLogout">Log Out</button>
@@ -80,13 +76,16 @@
                   v-for="(order, idx) in orderList"
                   :key="idx"
                 >
-                  Date: 2/4/2024
+                  Date: {{ order.orderDay }}
                   <div v-for="(cart, idx) in order.cart.cartList" :key="idx">
-                    <div>
-                      <div class="image-cover">
-                        <img :src="cart.image" alt="" />
+                    <div style="gap: 1rem">
+                      <div>
+                        <div class="image-cover">
+                          <img :src="cart.image" alt="" />
+                        </div>
+                        <p>{{ cart.name }}</p>
                       </div>
-                      <p>{{ cart.name }}</p>
+                      <div>x {{ cart.quantity }}</div>
                     </div>
                     <div>
                       <span style="text-decoration: line-through"
@@ -95,9 +94,14 @@
                       <span>${{ cart.salePrice }}</span>
                     </div>
                   </div>
-                  <div><span>Shipping fee:</span> <span>$5</span></div>
+                  <div>
+                    <span>Shipping fee:</span>
+                    <span>${{ order.shippingFee }}</span>
+                  </div>
 
-                  <div><span>Total:</span> <span>$77</span></div>
+                  <div>
+                    <span>Total:</span> <span>${{ order.totalPrice }}</span>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -125,7 +129,6 @@ export default {
     const store = useStore();
     const router = useRouter();
 
-    store.dispatch("auth/loadUserLoginFromLocalStorageAction");
     const userLogin = computed(() => store.state.auth.userLogin);
 
     store.dispatch("orders/getOrderListAction", userLogin.value.user.id);
@@ -155,7 +158,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .user-profile {
   .tabs {
     display: flex;
@@ -219,15 +222,11 @@ export default {
         }
 
         label {
-          margin-right: 1rem;
+          margin-right: 6px;
         }
         input {
           padding: 8px;
           font-size: 1.6rem;
-
-          &[type="radio"] {
-            margin-right: 4px;
-          }
         }
         div:last-child {
           display: flex;
@@ -275,6 +274,24 @@ export default {
     .base-btn {
       margin: var(--m-item);
       width: min(100%, 25rem);
+    }
+  }
+}
+
+@media screen and (max-width: 739px) {
+  .tab-pane {
+    padding: var(--pd-inline-res) !important;
+  }
+  .image-cover {
+    width: 8rem !important;
+  }
+
+  .purchase-item {
+    p {
+      max-width: 10rem;
+    }
+    div div {
+      gap: var(--pd-inline-res) !important;
     }
   }
 }

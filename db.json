@@ -153,7 +153,7 @@
     },
     {
       "id": "54",
-      "name": "Barlett pear body wash",
+      "name": "Summer Lily body wash",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
       "salePrice": 20,
       "originalPrice": 30,
@@ -168,7 +168,7 @@
     },
     {
       "id": "55",
-      "name": "Barlett pear body wash",
+      "name": "Barlett pear body lotion",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
       "salePrice": 20,
       "originalPrice": 30,
@@ -182,7 +182,7 @@
     },
     {
       "id": "56",
-      "name": "Barlett pear body wash",
+      "name": "Summer Lily body lotion",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
       "salePrice": 20,
       "originalPrice": 30,
@@ -197,7 +197,7 @@
     },
     {
       "id": "57",
-      "name": "Face Oil",
+      "name": "Orange body lotion",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
       "salePrice": 50,
       "originalPrice": 80,
@@ -211,7 +211,7 @@
     },
     {
       "id": "58",
-      "name": "Face Oil",
+      "name": "Orange body wash",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
       "salePrice": 30,
       "originalPrice": 50,
@@ -396,131 +396,48 @@
   ],
   "orders": [
     {
-      "userId": "2",
-      "name": "Nguyễn Phong Kha",
-      "email": "kha9x0159@gmail.com",
-      "address": "191A Chường Trinh Quận 12",
-      "phone": "0909876987",
-      "message": "",
-      "cart": {
-        "cartList": [
-          {
-            "id": "50",
-            "name": "Barlett pear bundle",
-            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
-            "salePrice": "50",
-            "originalPrice": "75",
-            "stock": 5,
-            "rate": "5",
-            "rateQuatity": "3",
-            "tags": {
-              "skinTypeId": "18",
-              "ingredientTypeId": "22"
-            },
-            "productTypeId": "9",
-            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
-          }
-        ]
-      },
-      "id": 3
-    },
-    {
-      "userId": "2",
-      "name": "Nguyễn Phong Kha",
-      "email": "kha9x0159@gmail.com",
-      "address": "191A Chường Trinh Quận 12",
-      "phone": "0909876987",
-      "message": "",
-      "cart": {
-        "cartList": [
-          {
-            "id": "51",
-            "name": "Exfoliating Bar Soap",
-            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
-            "salePrice": "19.16",
-            "originalPrice": "26.32",
-            "stock": 3,
-            "tags": {
-              "skinTypeId": "18",
-              "ingredientTypeId": "19"
-            },
-            "productTypeId": "11",
-            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
-            "quantity": 1
-          },
-          {
-            "id": "52",
-            "name": "Face Oil",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
-            "salePrice": "20",
-            "originalPrice": "30",
-            "stock": 3,
-            "tags": {
-              "productTypeId": "11",
-              "skinTypeId": "18",
-              "ingredientTypeId": "22"
-            },
-            "sale": "Summer",
-            "image": "/images/product/Face-Oil_Product.jpg",
-            "quantity": 1
-          }
-        ]
-      },
-      "id": 4
-    },
-    {
-      "userId": "2",
-      "name": "Nguyễn Phong Kha",
-      "email": "kha9x0159@gmail.com",
-      "address": "191A Chường Trinh Quận 12",
-      "phone": "0909876987",
-      "message": "",
-      "cart": {
-        "cartList": [
-          {
-            "id": "51",
-            "name": "Exfoliating Bar Soap",
-            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
-            "salePrice": "19.16",
-            "originalPrice": "26.32",
-            "stock": 3,
-            "tags": {
-              "skinTypeId": "18",
-              "ingredientTypeId": "19"
-            },
-            "productTypeId": "11",
-            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
-            "quantity": 1
-          },
-          {
-            "id": "52",
-            "name": "Face Oil",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
-            "salePrice": "20",
-            "originalPrice": "30",
-            "stock": 3,
-            "tags": {
-              "productTypeId": "11",
-              "skinTypeId": "18",
-              "ingredientTypeId": "22"
-            },
-            "sale": "Summer",
-            "image": "/images/product/Face-Oil_Product.jpg",
-            "quantity": 1
-          }
-        ]
-      },
-      "id": 5
-    }
-  ],
-  "carts": [
-    {
       "userId": "9qY-w_O",
-      "detail": {
+      "name": "Phương",
+      "email": "phuongchiisai2k@gmail.com",
+      "address": "Hà Nội",
+      "phone": "0366993162",
+      "message": "",
+      "orderDay": "30/3/2024",
+      "cart": {
         "cartList": [
           {
             "id": "53",
             "name": "Barlett pear body wash",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": 20,
+            "originalPrice": 30,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "shippingFee": 10,
+      "totalPrice": 30,
+      "id": 3
+    },
+    {
+      "userId": "9qY-w_O",
+      "name": "Phương",
+      "email": "phuongchiisai2k@gmail.com",
+      "address": "Hà Nội",
+      "phone": "0366993162",
+      "message": "",
+      "orderDay": "15/04/2024",
+      "cart": {
+        "cartList": [
+          {
+            "id": "54",
+            "name": "Summer Lily body wash",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
             "salePrice": 20,
             "originalPrice": 30,
@@ -530,12 +447,13 @@
               "skinTypeId": "18",
               "ingredientTypeId": "22"
             },
+            "sale": "Summer",
             "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
             "quantity": 2
           },
           {
             "id": "55",
-            "name": "Barlett pear body wash",
+            "name": "Barlett pear body lotion",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
             "salePrice": 20,
             "originalPrice": 30,
@@ -547,10 +465,26 @@
             },
             "image": "/images/product/Body-Wash_Product.jpg",
             "quantity": 2
-          },
+          }
+        ]
+      },
+      "shippingFee": 10,
+      "totalPrice": 90,
+      "id": 4
+    },
+    {
+      "userId": "9qY-w_O",
+      "name": "Phương",
+      "email": "phuongchiisai2k@gmail.com",
+      "address": "Hà Nội",
+      "phone": "0366993162",
+      "message": "",
+      "orderDay": "15/04/2024",
+      "cart": {
+        "cartList": [
           {
             "id": "54",
-            "name": "Barlett pear body wash",
+            "name": "Summer Lily body wash",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
             "salePrice": 20,
             "originalPrice": 30,
@@ -562,7 +496,161 @@
             },
             "sale": "Summer",
             "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
-            "quantity": 1
+            "quantity": 2
+          },
+          {
+            "id": "55",
+            "name": "Barlett pear body lotion",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": 20,
+            "originalPrice": 30,
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "image": "/images/product/Body-Wash_Product.jpg",
+            "quantity": 4
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 3
+          }
+        ]
+      },
+      "shippingFee": 15,
+      "totalPrice": 175,
+      "id": 5
+    },
+    {
+      "userId": "9qY-w_O",
+      "name": "Phương",
+      "email": "phuongchiisai2k@gmail.com",
+      "address": "Hà Nội",
+      "phone": "0366993162",
+      "message": "",
+      "orderDay": "15/04/2024",
+      "cart": {
+        "cartList": [
+          {
+            "id": "54",
+            "name": "Summer Lily body wash",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": 20,
+            "originalPrice": 30,
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 2
+          },
+          {
+            "id": "55",
+            "name": "Barlett pear body lotion",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": 20,
+            "originalPrice": 30,
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "image": "/images/product/Body-Wash_Product.jpg",
+            "quantity": 4
+          },
+          {
+            "id": "52",
+            "name": "Face Oil",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": "20",
+            "originalPrice": "30",
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Face-Oil_Product.jpg",
+            "quantity": 2
+          }
+        ]
+      },
+      "shippingFee": 15,
+      "totalPrice": 195,
+      "id": 6
+    },
+    {
+      "userId": "9qY-w_O",
+      "name": "Phương",
+      "email": "phuongchiisai2k@gmail.com",
+      "address": "Hà Nội",
+      "phone": "0366993162",
+      "message": "",
+      "orderDay": "15/04/2024",
+      "cart": {
+        "cartList": [
+          {
+            "id": "54",
+            "name": "Summer Lily body wash",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": 20,
+            "originalPrice": 30,
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 2
+          }
+        ]
+      },
+      "shippingFee": 10,
+      "totalPrice": 50,
+      "id": 7
+    }
+  ],
+  "carts": [
+    {
+      "userId": "9qY-w_O",
+      "detail": {
+        "cartList": [
+          {
+            "id": "54",
+            "name": "Summer Lily body wash",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
+            "salePrice": 20,
+            "originalPrice": 30,
+            "stock": 3,
+            "tags": {
+              "productTypeId": "11",
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "sale": "Summer",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 2
           }
         ]
       },

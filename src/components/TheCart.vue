@@ -1,10 +1,10 @@
 <template>
   <!-- cart -->
   <div class="cart-pc">
-    <router-link to="/payment" class="cart-btn"
+    <span class="cart-btn"
       ><i class="fa-solid fa-cart-shopping"></i>
       <span class="count">{{ cartListDetail.length }}</span>
-    </router-link>
+    </span>
     <div class="nav-detail">
       <span class="subnav-tip"></span>
 
