@@ -629,6 +629,84 @@
       "shippingFee": 10,
       "totalPrice": 50,
       "id": 7
+    },
+    {
+      "userId": "2",
+      "name": "Nguyễn Phong Kha",
+      "email": "kha9x0159@gmail.com",
+      "address": "191A Chường Trinh Quận 12",
+      "phone": "0909876987",
+      "message": "",
+      "orderDay": "17/04/2024",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": 50,
+            "originalPrice": 75,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "shippingFee": 10,
+      "totalPrice": 60,
+      "id": 8
+    },
+    {
+      "userId": "9qY-w_O",
+      "name": "Phương",
+      "email": "phuongchiisai2k@gmail.com",
+      "address": "Hà Nội",
+      "phone": "0366993162",
+      "message": "",
+      "orderDay": "17/04/2024",
+      "cart": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": 50,
+            "originalPrice": 75,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
+          },
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": 19.16,
+            "originalPrice": 26.32,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
+            "quantity": 2
+          }
+        ]
+      },
+      "shippingFee": 10,
+      "totalPrice": 98.32,
+      "id": 9
     }
   ],
   "carts": [
@@ -637,24 +715,62 @@
       "detail": {
         "cartList": [
           {
-            "id": "54",
-            "name": "Summer Lily body wash",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi",
-            "salePrice": 20,
-            "originalPrice": 30,
-            "stock": 3,
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": 50,
+            "originalPrice": 75,
+            "rate": "5",
+            "rateQuatity": "3",
             "tags": {
-              "productTypeId": "11",
               "skinTypeId": "18",
               "ingredientTypeId": "22"
             },
-            "sale": "Summer",
+            "productTypeId": "9",
             "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
+          },
+          {
+            "id": "51",
+            "name": "Exfoliating Bar Soap",
+            "description": "Leave your skin feeling clean and refreshed without stripping it of its natural oils.",
+            "salePrice": 19.16,
+            "originalPrice": 26.32,
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "19"
+            },
+            "productTypeId": "11",
+            "image": "/images/product/Exfoliating-Bar-Soap.jpg",
             "quantity": 2
           }
         ]
       },
       "id": 1
+    },
+    {
+      "userId": "2",
+      "detail": {
+        "cartList": [
+          {
+            "id": "50",
+            "name": "Barlett pear bundle",
+            "description": "Bartlett Pear Bundle is an effective skin care product that has been created as a result of extensive research into the properties of pears. The pear extract is used in conjunction with other natural ingredients such as Rosehip Seed Oil and Vitamin E to create a unique blend which works synergistically to promote healthy skin. This is a fantastic value for money product that will leave your skin feeling clean, smooth and hydrated.",
+            "salePrice": 50,
+            "originalPrice": 75,
+            "rate": "5",
+            "rateQuatity": "3",
+            "tags": {
+              "skinTypeId": "18",
+              "ingredientTypeId": "22"
+            },
+            "productTypeId": "9",
+            "image": "/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg",
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 2
     }
   ]
 }

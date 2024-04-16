@@ -1,5 +1,6 @@
 <template>
   <main>
+    <BenifitBar></BenifitBar>
     <div class="user">
       <div class="wrapper">
         <h1>Login</h1>
@@ -25,9 +26,13 @@ import { reactive } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
+import BenifitBar from "@/components/BenifitBar.vue";
+
 export default {
   name: "SignInView",
-  components: {},
+  components: {
+    BenifitBar,
+  },
   setup() {
     const store = useStore();
     const router = useRouter();

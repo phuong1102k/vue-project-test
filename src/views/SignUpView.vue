@@ -1,8 +1,9 @@
 <template>
   <main>
+    <BenifitBar></BenifitBar>
     <div class="user-sign-up">
       <div class="wrapper">
-        <h1>Sign Up</h1>
+        <h1 style="text-align: center">Sign Up</h1>
         <form action="" id="user_form" @submit.prevent="handleSubmit">
           <label for="user_name">User name</label>
           <input type="text" id="user_name" v-model="userRegister.name" />
@@ -13,42 +14,46 @@
           <label for="tel">Phone Number</label>
           <input type="tel" id="tel" v-model="userRegister.phone" />
 
-          <label for="birthday"
-            >Birthday:
-            <div class="birthday">
-              <select v-model="userRegister.day">
-                <option label="Day"></option>
-                <option v-for="(day, index) in arrayDay" :key="index">
-                  {{ day }}
-                </option>
+          <div style="margin: calc(var(--pd-item) / 2) 0 var(--pd-item)">
+            <label for="birthday"
+              >Birthday:
+              <div class="birthday">
+                <select v-model="userRegister.day">
+                  <option label="Day"></option>
+                  <option v-for="(day, index) in arrayDay" :key="index">
+                    {{ day }}
+                  </option>
+                </select>
+
+                <select v-model="userRegister.month">
+                  <option label="Month"></option>
+                  <option v-for="(month, index) in arrayMonth" :key="index">
+                    {{ month }}
+                  </option>
+                </select>
+
+                <select style="" v-model="userRegister.year">
+                  <option label="Year"></option>
+                  <option v-for="(year, index) in arrayYear" :key="index">
+                    {{ year }}
+                  </option>
+                </select>
+              </div>
+            </label>
+          </div>
+
+          <div style="margin: calc(var(--pd-item) / 2) 0 var(--pd-item)">
+            <label for="gender"
+              >Gender:
+              <select style="" v-model="userRegister.gender">
+                <option label="Gender"></option>
+                <option value="true">Male</option>
+                <option value="false">Female</option>
               </select>
+            </label>
+          </div>
 
-              <select v-model="userRegister.month">
-                <option label="Month"></option>
-                <option v-for="(month, index) in arrayMonth" :key="index">
-                  {{ month }}
-                </option>
-              </select>
-
-              <select style="" v-model="userRegister.year">
-                <option label="Year"></option>
-                <option v-for="(year, index) in arrayYear" :key="index">
-                  {{ year }}
-                </option>
-              </select>
-            </div>
-          </label>
-
-          <label for="gender"
-            >Gender:
-            <select style="" v-model="userRegister.gender">
-              <option label="Gender"></option>
-              <option value="true">Male</option>
-              <option value="false">Female</option>
-            </select>
-          </label>
-
-          <label for="address">Address: </label>
+          <label for="address" style="display: block">Address: </label>
           <input
             class="text"
             type="text"
@@ -72,7 +77,7 @@
           />
 
           <input type="submit" value="SIGN UP" />
-          <div>
+          <div style="text-align: center">
             If you had account?
             <router-link style="text-decoration: underline" to="/sign-in"
               >SIGN IN</router-link
@@ -90,9 +95,13 @@ import { createArrayNumber } from "../utils/createArrayNumber";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
+import BenifitBar from "@/components/BenifitBar.vue";
+
 export default {
   name: "SignUpView",
-
+  components: {
+    BenifitBar,
+  },
   setup() {
     const store = useStore();
     const router = useRouter();
@@ -143,15 +152,36 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+#user_form {
+  width: 25rem;
+  margin: 0 auto;
+}
+input {
+  display: block;
+  width: 25rem;
+  margin: calc(var(--pd-item) / 2) 0 var(--pd-item);
+  padding: calc(var(--search-padding) / 2) var(--search-padding);
+  border: var(--border);
+  border-radius: var(--border-radius);
+
+  &[type="submit"] {
+    text-align: center;
+    color: var(--secondary-clr);
+    background-color: var(--btn-clr-primary-hover);
+    padding: calc(var(--search-padding) / 2) var(--search-padding);
+
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.6rem;
+  }
+}
 label[for="birthday"],
 label[for="gender"] {
   margin: calc(var(--pd-item) / 2) 0 var(--pd-item);
 }
 
 .birthday {
-  display: inline-block;
-  width: calc(100% - 7rem);
+  width: 25rem;
 }
 
 select {

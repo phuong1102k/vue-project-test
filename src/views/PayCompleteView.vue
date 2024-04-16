@@ -1,5 +1,6 @@
 <template>
   <main>
+    
     <div class="pay-complete">
       <div class="wrapper">
         <div class="complete">

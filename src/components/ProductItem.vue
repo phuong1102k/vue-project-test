@@ -496,6 +496,7 @@
 import { ref } from "vue";
 
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 export default {
   name: "ProductItem",
@@ -507,6 +508,7 @@ export default {
 
   setup(props) {
     const store = useStore();
+    const router = useRouter();
     const item = computed(() => props.detail);
     const isOpen = ref(false);
 

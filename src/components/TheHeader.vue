@@ -515,8 +515,7 @@ export default {
     store.dispatch("auth/loadUserLoginFromLocalStorageAction");
     const userLogin = computed(() => store.state.auth.userLogin);
 
-    if (userLogin.value) {
-      // console.log(123);
+    if (userLogin.value.user) {
       store.dispatch("carts/getCartListAction", userLogin.value.user.id);
     }
 

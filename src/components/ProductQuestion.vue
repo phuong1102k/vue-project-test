@@ -14,12 +14,12 @@
 
       <div class="tabs">
         <div class="tab">
-          <a class="tab-button" onclick="toggleTab(3)">
+          <a class="tab-button" @click="openTab('question1')">
             <span>What payment methods do you accept?</span>
             <span class="more"><i class="fa-solid fa-angle-down"></i></span>
           </a>
 
-          <div class="text">
+          <div class="text" :class="{ open: activeTab == 'question1' }">
             Note that this text is a demonstration example of a response you
             would add to answer a relevant question. <br />
             <strong>Tip: </strong>Increase trust by being clear, informative,
@@ -29,12 +29,12 @@
         </div>
 
         <div class="tab">
-          <a class="tab-button" onclick="toggleTab(4)">
+          <a class="tab-button" @click="openTab('question2')">
             <span>What payment methods do you accept?</span>
             <span class="more"><i class="fa-solid fa-angle-down"></i></span>
           </a>
 
-          <div class="text">
+          <div class="text" :class="{ open: activeTab == 'question2' }">
             Note that this text is a demonstration example of a response you
             would add to answer a relevant question. <br />
             <strong>Tip: </strong>Increase trust by being clear, informative,
@@ -44,12 +44,12 @@
         </div>
 
         <div class="tab">
-          <a class="tab-button" onclick="toggleTab(5)">
+          <a class="tab-button" @click="openTab('question3')">
             <span>What payment methods do you accept?</span>
             <span class="more"><i class="fa-solid fa-angle-down"></i></span>
           </a>
 
-          <div class="text">
+          <div class="text" :class="{ open: activeTab == 'question3' }">
             Note that this text is a demonstration example of a response you
             would add to answer a relevant question. <br />
             <strong>Tip: </strong>Increase trust by being clear, informative,
@@ -59,12 +59,12 @@
         </div>
 
         <div class="tab">
-          <a class="tab-button" onclick="toggleTab(6)">
+          <a class="tab-button" @click="openTab('question4')">
             <span>What payment methods do you accept?</span>
             <span class="more"><i class="fa-solid fa-angle-down"></i></span>
           </a>
 
-          <div class="text">
+          <div class="text" :class="{ open: activeTab == 'question4' }">
             Note that this text is a demonstration example of a response you
             would add to answer a relevant question. <br />
             <strong>Tip: </strong>Increase trust by being clear, informative,
@@ -78,8 +78,22 @@
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   name: "ProductQuestion",
   components: {},
+
+  setup() {
+    const activeTab = ref("question1");
+
+    const openTab = (tab) => {
+      activeTab.value = tab;
+    };
+
+    return {
+      activeTab,
+      openTab,
+    };
+  },
 };
 </script>
