@@ -1,5 +1,6 @@
 <template>
   <main>
+    
     <div class="pay-complete">
       <div class="wrapper">
         <div class="complete">
@@ -8,7 +9,10 @@
           </div>
           <p>Payment success</p>
           <p>Your order number is <span>833883794</span>.</p>
-          <p>You can see deatails in <a href="#">my order</a>.</p>
+          <p>
+            You can see deatails in
+            <router-link to="/user-profile">my order</router-link>.
+          </p>
 
           <router-link to="/" class="continue-shopping"
             >Continue shopping</router-link

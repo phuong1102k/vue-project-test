@@ -1,6 +1,7 @@
 <template>
   <!-- daily deal -->
-  <div class="daily">
+  <div class="daily" v-if="item && item.image && item.name">
+    <!-- v-if="item && item.image && item.name" -->
     <div class="wrapper">
       <div class="daily-product">
         <div class="base-caption">
@@ -16,9 +17,9 @@
         </div>
 
         <div class="daily-product-list">
-          <div class="item" v-for="(item, idx) in productDaily" :key="idx">
+          <div class="item" v-for="(item, idx) in productDailyList" :key="idx">
             <a class="img-cover" @click="handleClickProduct(item.id)">
-              <img :src="item.image" alt="product_daily" />
+              <img v-if="item.image" :src="item.image" alt="product_daily" />
             </a>
 
             <div class="daily-product-detail">
@@ -191,20 +192,15 @@ export default {
       router.push(`/product-detail/${id}`);
     };
 
-    const productDaily = [];
+    const productDailyList = computed(() => {
+      const productDaily = [];
+      for (let i = 0; i < 3; i++) {
+        productDaily.push(props.productList[i]);
+      }
+      return productDaily;
+    });
 
-    for (var i = 0; i < 3; i++) {
-      productDaily.push(props.productList[i]);
-    }
-
-    // store.dispatch("carts/getAllCartListAction");
-
-    // const cartList = computed(() => store.state.carts.allCartList);
-
-    // store.dispatch("carts/getCartListAction", props.user.user.id);
-    // const cartList = store.state.carts.cartList;
     const cartList = computed(() => store.state.carts.cartList);
-    // const cartList = [];
 
     function addProduct(product) {
       if (!localStorage.getItem("userLogin")) {
@@ -221,10 +217,6 @@ export default {
           },
         };
 
-        // const data = product;
-
-        // console.log(data);
-        // const userId = props.user.user.id;
         store.dispatch("carts/addNewCartAction", data);
       } else {
         let productId = [];
@@ -275,7 +267,7 @@ export default {
     }
 
     return {
-      productDaily,
+      productDailyList,
       cartList,
       handleClickProduct,
       addProduct,
@@ -291,6 +283,7 @@ export default {
 <style lang="scss">
 .daily-product-detail {
   .product-desc {
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;

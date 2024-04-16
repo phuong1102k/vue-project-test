@@ -4,33 +4,14 @@
     <div class="wrapper">
       <!-- image -->
       <div class="product-image-grid">
-        <img :src="detail.image" alt="product_image" />
+        <img :src="item.image" alt="product_image" />
       </div>
 
       <!-- detail -->
       <div class="product-detail">
         <!-- name -->
         <div class="name">
-          <h2 class="product-title">{{ detail.name }}</h2>
-
-          <!-- <div class="product-share">
-                <div class="share-icon"><i class="fa-solid fa-share"></i></div>
-
-                <ul class="social">
-                  <li>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                  </li>
-                </ul>
-              </div> -->
+          <h2 class="product-title">{{ item.name }}</h2>
         </div>
 
         <!-- rate -->
@@ -132,8 +113,8 @@
 
         <!-- price -->
         <div class="product-price">
-          ${{ detail.salePrice }}
-          <span>${{ detail.originalPrice }}</span>
+          ${{ item.salePrice }}
+          <span>${{ item.originalPrice }}</span>
         </div>
 
         <!-- description -->
@@ -144,7 +125,7 @@
             :class="{ open: isOpen }"
             @click="toggleHeight"
           >
-            {{ detail.description }}
+            {{ item.description }}
           </div>
 
           <span id="show_more" @click.stop="toggleHeight" class="show-more">{{
@@ -179,46 +160,21 @@
           </div>
         </div>
 
-        <div class="quantity-picker">
-          <div class="quantity">
-            <div class="input-quantity">
-              <button
-                aria-label="Decrease"
-                class="math-sign"
-                @click="subtractQuantity(cart)"
-              >
-                <i class="fa-solid fa-minus"></i>
-              </button>
-              <span class="num quantity">{{ cart.quantity }}</span>
-
-              <span aria-live="polite" class="quantity-text">1</span>
-
-              <button
-                aria-label="Increase"
-                class="math-sign"
-                @click="addQuantity(cart)"
-              >
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
+        <!-- add to cart -->
+        <div class="product-cart">
+          <div action="" id="cart_form">
+            <button class="base-btn" @click="addProduct(item)">
+              Add to cart <i class="fa-solid fa-cart-shopping"></i>
+            </button>
           </div>
         </div>
 
-        <!-- add to cart -->
-        <div class="product-cart">
-          <form action="" id="cart_form">
-            <button class="base-btn">
-              Add to cart <i class="fa-solid fa-cart-shopping"></i>
-            </button>
-          </form>
-        </div>
-
-        <!-- buy it now -->
+        <!-- buy it now
         <div class="buy-now">
           <form action="" id="buy form">
             <button class="base-btn">Buy it now</button>
           </form>
-        </div>
+        </div> -->
 
         <!-- policy -->
         <div class="policy">
@@ -537,23 +493,23 @@
 </template>
 
 <script>
-// import store from "@/store";
-// import axiosAPI from "@/api";
 import { ref } from "vue";
-// import { useRoute } from "vue-router";
-// import { useStore } from "vuex";
-// import { computed } from "vue";
+
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 export default {
   name: "ProductItem",
   components: {},
   props: {
     detail: {},
+    userInfo: {},
   },
-  // beforeCreate() {
-  //   this.getDetail();
-  //   this.getType();
-  // },
-  setup() {
+
+  setup(props) {
+    const store = useStore();
+    const router = useRouter();
+    const item = computed(() => props.detail);
     const isOpen = ref(false);
 
     // let isOpen = false;
@@ -567,13 +523,81 @@ export default {
       activeTab.value = tab;
     };
 
+    const cartList = computed(() => store.state.carts.cartList);
+
+    const cartListDetail = computed(() =>
+      cartList.value && cartList.value[0]
+        ? cartList.value[0].detail.cartList
+        : []
+    );
+
+    function addProduct(product) {
+      // console.log(product);
+      if (!localStorage.getItem("userLogin")) {
+        alert("You have to sign in first");
+        router.push("/sign-in");
+      }
+      product.quantity = 1;
+
+      if (cartList.value.length == 0) {
+        const data = {
+          userId: props.userInfo.user.id,
+          detail: {
+            cartList: [product],
+          },
+        };
+
+        store.dispatch("carts/addNewCartAction", data);
+      } else {
+        let productId = [];
+        for (let i = 0; i < cartListDetail.value.length; i++) {
+          productId.push(cartListDetail.value[i].id);
+        }
+        if (!productId.includes(product.id)) {
+          cartListDetail.value.push(product);
+
+          const data = {
+            userId: props.userInfo.user.id,
+            detail: {
+              cartList: cartListDetail.value,
+            },
+          };
+
+          const cartId = cartList.value[0].id;
+          store.dispatch("carts/updateCartAction", { cartId, payload: data });
+        } else {
+          addQuantity(product);
+        }
+      }
+    }
+
+    function addQuantity(product) {
+      for (let i = 0; i < cartListDetail.value.length; i++) {
+        if (cartListDetail.value[i].id == product.id) {
+          // alert(cartListDetail[i].id == product.id);
+          cartListDetail.value[i].quantity++;
+
+          const data = {
+            userId: props.userInfo.user.id,
+            detail: {
+              cartList: cartListDetail.value,
+            },
+          };
+          const cartId = cartList.value[0].id;
+          // store.dispatch("carts/updateCartAction", { cartId, data });
+          store.dispatch("carts/updateCartAction", { cartId, payload: data });
+        }
+      }
+    }
+
     return {
-      // detail,
-      // getDetail,
-      // getType,
-      // type,
+      item,
+      cartList,
+      // cartListDetail,
+
       isOpen,
       toggleHeight,
+      addProduct,
 
       activeTab,
       openTab,

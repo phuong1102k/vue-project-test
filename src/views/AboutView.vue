@@ -4,7 +4,12 @@
     <BenifitBar></BenifitBar>
 
     <!-- head title -->
-    <h1 class="head-title">Discover what we stand for.</h1>
+    <h1
+      class="head-title"
+      style="text-align: center; margin-top: var(--m-feature)"
+    >
+      Discover what we stand for.
+    </h1>
     <!-- about -->
     <div class="about">
       <div class="wrapper">

@@ -37,101 +37,7 @@
     </div>
 
     <!-- detail -->
-    <ProductItem :detail="detailProduct"></ProductItem>
-
-    <!-- discover -->
-    <div class="discover">
-      <div class="wrapper">
-        <div class="base-caption">
-          <h1 class="base-title">Discover the bundle</h1>
-        </div>
-
-        <div class="discover-grid owl-carousel owl-theme">
-          <div class="item discover-product">
-            <div class="image-cover">
-              <img
-                src="/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
-                alt="bundle_1"
-              />
-            </div>
-
-            <div class="item-body">
-              <a class="base-name">Barlett Pear Bundle</a>
-
-              <div class="item-body-bottom">
-                <div class="base-price">
-                  <span class="base-price-original">$75</span>
-                  <span class="base-price-sale">$50</span>
-                </div>
-
-                <div class="cart">
-                  <form action="" id="cart form">
-                    <button class="base-btn">
-                      <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item discover-product">
-            <div class="image-cover">
-              <img
-                src="/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
-                alt="bundle_1"
-              />
-            </div>
-
-            <div class="item-body">
-              <a class="base-name">Barlett Pear Bundle</a>
-
-              <div class="item-body-bottom">
-                <div class="base-price">
-                  <span class="base-price-original">$75</span>
-                  <span class="base-price-sale">$50</span>
-                </div>
-
-                <div class="cart">
-                  <form action="" id="cart form">
-                    <button class="base-btn">
-                      <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item discover-product">
-            <div class="image-cover">
-              <img
-                src="/images/product/Collection_Product-Brand-Bartlett-Pear-min.jpg"
-                alt="bundle_1"
-              />
-            </div>
-
-            <div class="item-body">
-              <a class="base-name">Barlett Pear Bundle</a>
-
-              <div class="item-body-bottom">
-                <div class="base-price">
-                  <span class="base-price-original">$75</span>
-                  <span class="base-price-sale">$50</span>
-                </div>
-
-                <div class="cart">
-                  <form action="" id="cart form">
-                    <button class="base-btn">
-                      <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ProductItem :detail="detailProduct" :userInfo="userLogin"></ProductItem>
 
     <!-- product question -->
     <ProductQuestion></ProductQuestion>
@@ -175,21 +81,14 @@ export default {
     ContactEmail,
     SaleGrid,
   },
-  // setup() {
-  //   const store = useStore();
-  //   store.dispatch("rooms/getProductDetailAction", route.params.productId);
-  //   const productDetail = computed(() => store.state.products.productDetail);
-
-  //   return {
-  //     productDetail,
-  //   };
-  // },
 
   setup() {
     const store = useStore();
     const route = useRoute();
 
     store.dispatch("auth/loadUserLoginFromLocalStorageAction");
+    const userLogin = computed(() => store.state.auth.userLogin);
+
 
     store.dispatch("products/getProductListAction");
     const productList = computed(() => store.state.products.productList);
@@ -203,6 +102,7 @@ export default {
     return {
       productList,
       detailProduct,
+      userLogin,
     };
   },
 };

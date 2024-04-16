@@ -1,10 +1,10 @@
 <template>
   <!-- cart -->
   <div class="cart-pc">
-    <router-link to="/payment" class="cart-btn"
+    <span class="cart-btn"
       ><i class="fa-solid fa-cart-shopping"></i>
       <span class="count">{{ cartListDetail.length }}</span>
-    </router-link>
+    </span>
     <div class="nav-detail">
       <span class="subnav-tip"></span>
 
@@ -19,6 +19,93 @@
           <p>Your cart currently empty</p>
         </div>
 
+        <div v-else>
+          <ul class="cart-list">
+            <li
+              class="cart-item"
+              v-for="(cart, idx) in cartListDetail"
+              :key="idx"
+            >
+              <div class="item">
+                <div>
+                  <div class="image-cover">
+                    <img :src="cart.image" alt="product" />
+                  </div>
+                  <div>
+                    <p class="name" style="text-align: left">
+                      {{ cart.name }}
+                    </p>
+                    <p class="price" style="text-align: left">
+                      {{ cart.salePrice }}
+                      <span>${{ cart.originalPrice }}</span>
+                    </p>
+
+                    <div class="quantity-picker">
+                      <div class="quantity">
+                        <div class="input-quantity">
+                          <button
+                            aria-label="Decrease"
+                            class="math-sign"
+                            @click="subtractQuantity(cart)"
+                          >
+                            <i class="fa-solid fa-minus"></i>
+                          </button>
+                          <span class="num quantity">{{ cart.quantity }}</span>
+
+                          <span aria-live="polite" class="quantity-text"
+                            >1</span
+                          >
+
+                          <button
+                            aria-label="Increase"
+                            class="math-sign"
+                            @click="addQuantity(cart)"
+                          >
+                            <i class="fa-solid fa-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="delete-cart-item">
+                <button @click="deleteProduct(cart)">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+
+          <div class="payment">
+            <div class="total-price">
+              Total {{ cartListDetail.length }} in cart
+            </div>
+            <router-link class="check-out" to="/payment">Check Out</router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="cart-mobile">
+    <label class="cart-btn" @click.stop="activeCart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="count">{{ cartListDetail.length }}</span>
+    </label>
+
+    <div class="navbar-cart" :class="{ active: isActive }">
+      <div class="empty" v-if="cartListDetail.length == 0">
+        <div class="image-cover">
+          <img
+            src="/images/logo/NicePng_money-bag-clipart-png_3077213.png"
+            alt="cart-img"
+          />
+        </div>
+        <p>Your cart currently empty</p>
+      </div>
+
+      <div v-else>
         <ul class="cart-list">
           <li
             class="cart-item"
@@ -49,16 +136,9 @@
                         >
                           <i class="fa-solid fa-minus"></i>
                         </button>
-                        <input
-                          class="num quantity"
-                          type="number"
-                          name="amount"
-                          role="spinbutton"
-                          aria-live="assertive"
-                          aria-valuenow="1"
-                          :value="cart.quantity"
-                          :v-model="cart.quantity"
-                        />
+                        <span class="num quantity">{{
+                          cart.quantity ?? "mieo"
+                        }}</span>
 
                         <span aria-live="polite" class="quantity-text">1</span>
 
@@ -76,7 +156,7 @@
               </div>
             </div>
             <div class="delete-cart-item">
-              <button @click="deleteProduct(product)">
+              <button @click="deleteProduct(cart)">
                 <i class="fa-solid fa-xmark"></i>
               </button>
             </div>
@@ -91,81 +171,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <a class="cart-mobile">
-    <label class="cart-btn" @click.stop="activeCart">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span class="count">{{ cartListDetail.length }}</span>
-    </label>
-
-    <div class="navbar-cart" :class="{ active: isActive }">
-      <div class="empty" v-if="cartListDetail.length == 0">
-        <div class="image-cover">
-          <img
-            src="/images/logo/NicePng_money-bag-clipart-png_3077213.png"
-            alt="cart-img"
-          />
-        </div>
-        <p>Your cart currently empty</p>
-      </div>
-
-      <ul class="cart-list">
-        <li class="cart-item" v-for="(cart, idx) in cartListDetail" :key="idx">
-          <div class="item">
-            <div>
-              <div class="image-cover">
-                <img :src="cart.image" alt="product" />
-              </div>
-              <div>
-                <p class="name" style="text-align: left">
-                  {{ cart.name }}
-                </p>
-                <p class="price" style="text-align: left">
-                  {{ cart.salePrice }}
-                  <span>${{ cart.originalPrice }}</span>
-                </p>
-
-                <div class="quantity-picker" style="text-align: center">
-                  <div class="quantity">
-                    <div class="input-quantity">
-                      <button
-                        aria-label="Decrease"
-                        class="math-sign"
-                        @click="subtractQuantity(cart)"
-                      >
-                        <i class="fa-solid fa-minus"></i>
-                      </button>
-                      <span class="num quantity">{{ cart.quantity }}</span>
-
-                      <span aria-live="polite" class="quantity-text">1</span>
-
-                      <button
-                        aria-label="Increase"
-                        class="math-sign"
-                        @click="addQuantity(cart)"
-                      >
-                        <i class="fa-solid fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="delete-cart-item">
-            <button @click="deleteProduct(product)">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-        </li>
-      </ul>
-
-      <div class="payment">
-        <div class="total-price">Total {{ cartListDetail.length }} in cart</div>
-        <router-link class="check-out" to="/payment">Check Out</router-link>
-      </div>
-    </div>
   </a>
 </template>
 
@@ -176,40 +181,32 @@ import { useStore } from "vuex";
 export default {
   props: {
     cart: {},
-    user: {},
+    userInfo: {},
   },
-
-  // beforeCreate() {
-  //   //   const cartList = computed(() => this.cart);
-  //   // console.log(cartList.value);
-
-  //   // const cartListDetail = computed(() => this.cartList[0].detail.cartList);
-  //   // console.log(cartListDetail.value);
-  //   return {
-  //     cartListDetail,
-  //   };
-  // },
 
   setup(props) {
     const store = useStore();
     const cartList = computed(() => props.cart);
 
-    const cartListDetail = computed(() => cartList.value[0].detail.cartList);
+    const cartListDetail = computed(() =>
+      cartList.value && cartList.value[0]
+        ? cartList.value[0].detail.cartList
+        : []
+    );
 
     function addQuantity(product) {
       for (let i = 0; i < cartListDetail.value.length; i++) {
-        if (cartListDetail[i].id == product.id) {
+        if (cartListDetail.value[i].id == product.id) {
           // alert(cartList.value[0].detail.cartList[i].id == product.id);
-          cartListDetail[i].quantity++;
+          cartListDetail.value[i].quantity++;
 
           const data = {
-            userId: props.user.value.user.id,
+            userId: props.userInfo.user.id,
             detail: {
-              cartList: cartListDetail,
+              cartList: cartListDetail.value,
             },
           };
-
-          const cartId = props.cartcart.value[0].id;
+          const cartId = props.cart[0].id;
           // store.dispatch("carts/updateCartAction", { cartId, data });
           store.dispatch("carts/updateCartAction", { cartId, payload: data });
         }
@@ -218,11 +215,31 @@ export default {
 
     function subtractQuantity(product) {
       for (let i = 0; i < cartListDetail.value.length; i++) {
-        if (cartListDetail[i].id == product.id) {
-          cartListDetail[i].quantity--;
+        if (cartListDetail.value[i].id == product.id) {
+          cartListDetail.value[i].quantity--;
 
-          if (cartListDetail[i].quantity == 0) {
+          const data = {
+            userId: props.userInfo.user.id,
+            detail: {
+              cartList: cartListDetail.value,
+            },
+          };
+          const cartId = props.cart[0].id;
+
+          store.dispatch("carts/updateCartAction", { cartId, payload: data });
+
+          if (cartListDetail.value[i].quantity == 0) {
             cartListDetail.value.splice(i, 1);
+
+            const data = {
+              userId: props.userInfo.user.id,
+              detail: {
+                cartList: cartListDetail.value,
+              },
+            };
+            const cartId = props.cart[0].id;
+
+            store.dispatch("carts/updateCartAction", { cartId, payload: data });
           }
         }
       }
@@ -230,8 +247,18 @@ export default {
 
     function deleteProduct(product) {
       for (let i = 0; i < cartListDetail.value.length; i++) {
-        if (cartListDetail[i].id == product.id) {
+        if (cartListDetail.value[i].id == product.id) {
           cartListDetail.value.splice(i, 1);
+
+          const data = {
+            userId: props.userInfo.user.id,
+            detail: {
+              cartList: cartListDetail.value,
+            },
+          };
+          const cartId = props.cart[0].id;
+
+          store.dispatch("carts/updateCartAction", { cartId, payload: data });
         }
       }
     }
@@ -400,8 +427,8 @@ export default {
 }
 
 .cart-list {
-  height: calc(100vh - 76px - 77px - 16px);
-  overflow-y: hidden;
+  max-height: calc(100vh - 76px - 77px - 16px);
+  overflow-y: scroll;
   .cart-item {
     display: flex !important;
     justify-content: space-between;
@@ -449,7 +476,6 @@ export default {
 @media only screen and (min-width: 1024px) {
   .cart-list {
     height: unset !important;
-    max-height: 68rem;
   }
 }
 

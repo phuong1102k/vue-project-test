@@ -1,6 +1,6 @@
 <template>
   <!-- bundle and save -->
-  <div class="bundle">
+  <div v-if="productBundle && productBundle.image" class="bundle">
     <div class="wrapper">
       <div class="base-caption">
         <div class="text">
@@ -39,7 +39,6 @@
           </div>
 
           <div class="base-status">Hot</div>
-          <div class="base-percent">25%</div>
 
           <div class="item-body">
             <a class="base-name">{{ productBundle.name }}</a>

@@ -172,8 +172,8 @@
             <ul class="subnav-list">
               <span class="subnav-tip"></span>
               <li class="subnav">
-                <a href="./about.html"
-                  ><i class="fa-solid fa-angle-right"></i>About</a
+                <router-link to="/about">
+                  <i class="fa-solid fa-angle-right"></i>About</router-link
                 >
               </li>
 
@@ -211,7 +211,7 @@
           </router-link>
         </span>
 
-        <TheCart :cart="cartList"></TheCart>
+        <TheCart :cart="cartList" :userInfo="userLogin"></TheCart>
       </div>
 
       <div class="navbar-mobile">
@@ -412,8 +412,9 @@
                 >
                   <ul class="subnav-list">
                     <li class="subnav">
-                      <a href="./about.html"
-                        ><i class="fa-solid fa-angle-right"></i>About</a
+                      <router-link to="/about">
+                        <i class="fa-solid fa-angle-right"></i
+                        >About</router-link
                       >
                     </li>
 
@@ -465,9 +466,9 @@
               <i class="fa-solid fa-circle-user"></i>
             </router-link>
           </span>
-
+          <div></div>
           <!-- cart -->
-          <TheCart :cart="cartList"></TheCart>
+          <TheCart :cart="cartList" :userInfo="userLogin"></TheCart>
         </div>
       </div>
     </div>
@@ -514,72 +515,11 @@ export default {
     store.dispatch("auth/loadUserLoginFromLocalStorageAction");
     const userLogin = computed(() => store.state.auth.userLogin);
 
-    // const cartList = !localStorage.getItem("cartList")
-    //   ? []
-    //   : computed(() => JSON.parse(localStorage.getItem("cartList")));
-    if (userLogin.value) {
-      // console.log(123);
+    if (userLogin.value.user) {
       store.dispatch("carts/getCartListAction", userLogin.value.user.id);
     }
 
     const cartList = computed(() => store.state.carts.cartList);
-    // const cart = computed(() => store.state.carts.cartList[0]);
-
-    // const cart = cartList;
-    // const cartListDetail = ref();
-    // console.log(Object.keys(cartList.value));
-
-    // console.log(cartListDetail.value);
-
-    function addQuantity(product) {
-      for (let i = 0; i < cartList.value[0].detail.cartList.length; i++) {
-        if (cartList.value[0].detail.cartList[i].id == product.id) {
-          // alert(cartList.value[0].detail.cartList[i].id == product.id);
-          cartList.value[0].detail.cartList[i].quantity++;
-
-          const data = {
-            userId: userLogin.value.user.id,
-            detail: {
-              cartList: cartList.value[0].detail.cartList,
-            },
-          };
-          // console.log(product);
-          // cartList.value.push(product);
-          // const userId = props.user.user.id;
-          const cartId = cartList.value[0].id;
-          // store.dispatch("carts/updateCartAction", { cartId, data });
-          store.dispatch("carts/updateCartAction", { cartId, payload: data });
-        }
-      }
-    }
-
-    function subtractQuantity(product) {
-      for (let i = 0; i < cartList.value.length; i++) {
-        if (cartList[i].id == product.id) {
-          cartList[i].quantity--;
-          localStorage.setItem("cartList", JSON.stringify(cartList));
-
-          if (cartList[i].quantity == 0) {
-            cartList.value.splice(i, 1);
-            localStorage.setItem("cartList", JSON.stringify(cartList));
-          }
-        }
-      }
-    }
-
-    function deleteProduct(product) {
-      for (let i = 0; i < cartList.value.length; i++) {
-        if (cartList[i].id == product.id) {
-          cartList.value.splice(i, 1);
-          localStorage.setItem("cartList", JSON.stringify(cartList));
-        }
-      }
-    }
-
-    // store.state.carts.cartList = [
-    //   { id: 51, name: "niovioa", salePrice: 36, quantity: 2 },
-    //   { id: 54, name: "niovioa", salePrice: 36, quantity: 1 },
-    // ];
 
     const activeTab = ref("tab01");
 
@@ -597,15 +537,7 @@ export default {
       typeIngredientList,
       typeList,
       typeSkinList,
-      // cartTotalQuatity,
-      // userHandle,
       cartList,
-      // cart,
-      // cartListDetail,
-
-      addQuantity,
-      subtractQuantity,
-      deleteProduct,
 
       activeTab,
       openTab,
@@ -627,6 +559,11 @@ export default {
   .subtab-list-item {
     padding-left: 1.6rem;
   }
+}
+
+.right {
+  display: flex;
+  gap: 5px;
 }
 
 .user {

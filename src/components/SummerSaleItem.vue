@@ -5,7 +5,7 @@
     </div>
 
     <div class="base-status">Hot</div>
-    <div class="base-percent">25%</div>
+    
 
     <div class="item-body">
       <a class="base-name">{{ summer.name }}</a>

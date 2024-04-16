@@ -1,10 +1,12 @@
 <template>
   <div
+    v-if="ingredient && ingredient.image && ingredient.subTitle"
     class="ingredient-grid-item"
     v-for="(ingredient, idx) in ingredientRender"
     :key="idx"
     :ingredient="ingredient"
   >
+    <!-- v-if="ingredient && ingredient.image && ingredient.subTitle" -->
     <div class="image-cover">
       <img :src="ingredient.image" alt="lilly" />
     </div>

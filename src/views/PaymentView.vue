@@ -11,7 +11,6 @@
           <span>Payment</span>
         </div>
         <form class="payment-detail" @submit.prevent="orderHandle">
-          <!-- @submit.prevent="orderHandle" -->
           <div class="address">
             <table>
               <tr>
@@ -57,7 +56,7 @@
                   <td>Item Subtotal</td>
                 </tr>
               </thead>
-              <tbody v-for="(cart, idx) in cartList" :key="idx">
+              <tbody v-for="(cart, idx) in cartListDetail" :key="idx">
                 <tr>
                   <td class="item">
                     <div class="image-cover">
@@ -74,9 +73,12 @@
                   </td>
                   <td class="unit">
                     <div>{{ cart.quantity }}</div>
-                    <div class="quantity-picker">
+                    <!-- <div class="quantity-picker">
                       <div class="quantity">
-                        <div class="input-quantity">
+                        <div
+                          class="input-quantity"
+                          style="justify-content: center; display: flex"
+                        >
                           <button
                             aria-label="Decrease"
                             class="math-sign"
@@ -99,7 +101,7 @@
                           </button>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </td>
                   <td>${{ cart.quantity * cart.salePrice }}</td>
                 </tr>
@@ -110,13 +112,12 @@
               <thead>
                 <tr>
                   <th>Product</th>
-
                   <td>Unit Price</td>
                   <td>Quantity</td>
                   <td>Info Money</td>
                 </tr>
               </thead>
-              <tbody v-for="(cart, idx) in cartList" :key="idx">
+              <tbody v-for="(cart, idx) in cartListDetail" :key="idx">
                 <tr>
                   <td class="item">
                     <div class="image-cover">
@@ -132,10 +133,13 @@
                     >
                   </td>
                   <td class="unit">
-                    <div>1</div>
-                    <div class="quantity-picker">
+                    <div>{{ cart.quantity }}</div>
+                    <!-- <div class="quantity-picker">
                       <div class="quantity">
-                        <div class="input-quantity">
+                        <div
+                          class="input-quantity"
+                          style="justify-content: center; display: flex"
+                        >
                           <button
                             aria-label="Decrease"
                             class="math-sign"
@@ -158,7 +162,7 @@
                           </button>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </td>
                   <td>${{ cart.quantity * cart.salePrice }}</td>
                 </tr>
@@ -180,8 +184,7 @@
                 <div class="shipping">
                   <div>Shipping Option</div>
                   <div>
-                    <p>Nhanh</p>
-                    <p>Get by 5/4 - 6/4</p>
+                    <p>Fast Shipping</p>
                   </div>
 
                   <div>${{ shippingFee }}</div>
@@ -194,7 +197,7 @@
             </div>
 
             <div class="total">
-              Order Total ({{ cartList.length }} item):
+              Order Total ({{ cartListDetail.length }} item):
               <span>${{ total }}</span>
             </div>
           </div>
@@ -218,11 +221,23 @@ export default {
     BenifitBar,
   },
 
+  // mounted() {
+  //   this.totalPrice();
+  // },
+
   setup() {
     const store = useStore();
     const router = useRouter();
-    store.dispatch("auth/loadUserLoginFromLocalStorageAction");
+
     const userLogin = computed(() => store.state.auth.userLogin);
+
+    const cartList = computed(() => store.state.carts.cartList);
+
+    const cartListDetail = computed(() =>
+      cartList.value && cartList.value[0]
+        ? cartList.value[0].detail.cartList
+        : []
+    );
 
     const orderInfomation = reactive({
       name: userLogin.value.user.name,
@@ -231,46 +246,98 @@ export default {
       message: "",
     });
 
-    const cartList = computed(() => store.state.carts.cartList);
-    // const cartList = store.state.carts.cartList;
-    // const cartList = !localStorage.getItem("cartList")
-    //   ? []
-    //   : computed(() => JSON.parse(localStorage.getItem("cartList")));
     // function addQuantity(product) {
-    //   for (let i = 0; i < cartList.length; i++) {
-    //     if (cartList[i].id == product.id) {
-    //       cartList[i].quantity++;
+    //   console.log(cartListDetail.value.length);
+    //   for (let i = 0; i < cartListDetail.value.length; i++) {
+    //     if (cartListDetail.value[i].id == product.id) {
+    //       // alert(cartList.value[0].detail.cartList[i].id == product.id);
+    //       cartListDetail.value[i].quantity++;
+
+    //       const data = {
+    //         userId: userLogin.value.user.id,
+    //         detail: {
+    //           cartList: cartListDetail.value,
+    //         },
+    //       };
+    //       const cartId = cartList.value[0].id;
+    //       // store.dispatch("carts/updateCartAction", { cartId, data });
+    //       store.dispatch("carts/updateCartAction", { cartId, payload: data });
     //     }
     //   }
     // }
 
     // function subtractQuantity(product) {
-    //   for (let i = 0; i < cartList.length; i++) {
-    //     if (cartList[i].id == product.id) {
-    //       cartList[i].quantity--;
+    //   for (let i = 0; i < cartListDetail.value.length; i++) {
+    //     if (cartListDetail.value[i].id == product.id) {
+    //       cartListDetail.value[i].quantity--;
 
-    //       if (cartList[i].quantity == 0) {
-    //         cartList.value.splice(i, 1);
+    //       const data = {
+    //         userId: userLogin.value.user.id,
+    //         detail: {
+    //           cartList: cartListDetail.value,
+    //         },
+    //       };
+    //       const cartId = cartList.value[0].id;
+
+    //       store.dispatch("carts/updateCartAction", { cartId, payload: data });
+
+    //       if (cartListDetail.value[i].quantity == 0) {
+    //         cartListDetail.value.splice(i, 1);
+
+    //         const data = {
+    //           userId: userLogin.value.user.id,
+    //           detail: {
+    //             cartList: cartListDetail.value,
+    //           },
+    //         };
+    //         const cartId = cartList.value[0].id;
+
+    //         store.dispatch("carts/updateCartAction", { cartId, payload: data });
     //       }
     //     }
     //   }
     // }
 
+    const today = new Date();
+    const date = () => {
+      const date = new Date(today);
+
+      date.setDate(date.getDate() + 1);
+
+      let year = date.getFullYear();
+      let month = String(date.getMonth() + 1).padStart(2, "0"); // Cần thêm 1 vào vì tháng trong JavaScript bắt đầu từ 0
+      let day = String(date.getDate()).padStart(2, "0");
+      const fomatDay = `${day}/${month}/${year}`;
+
+      return fomatDay;
+    };
+
+    const now = date();
+
     const total = ref(0);
     const shippingFee = ref(0);
-    // const totalPrice = () => {
-    //   for (let i = 0; i < cartList.value.length; i++) {
-    //     total.value += cartList.value[i].quantity * cartList.value[i].salePrice;
-    //   }
-    //   if (total.value < 100 && total.value > 0) {
-    //     shippingFee.value = 10;
-    //   } else if (total.value > 100) {
-    //     shippingFee.value = 15;
-    //   }
-    //   total.value = total.value + shippingFee.value;
-    // };
 
-    // totalPrice();
+    const totalPrice = () => {
+      // const cartListD = store.state.carts.cartList;
+      // console.log(cartListD);
+      console.log(cartListDetail.value);
+
+      for (let i = 0; i < cartListDetail.value.length; i++) {
+        // console.log(cartListDetail.value[i].quantity);
+        // console.log(cartListDetail.value[i].salePrice);
+        total.value +=
+          cartListDetail.value[i].quantity * cartListDetail.value[i].salePrice;
+      }
+
+      if (total.value <= 100 && total.value > 0) {
+        shippingFee.value = 10;
+      } else if (total.value > 100) {
+        shippingFee.value = 15;
+      }
+      total.value = total.value + shippingFee.value;
+    };
+
+    totalPrice();
 
     const orderHandle = () => {
       const data = {
@@ -280,18 +347,21 @@ export default {
         address: orderInfomation.address,
         phone: orderInfomation.phone,
         message: orderInfomation.message,
+        orderDay: now,
         cart: {
-          cartList,
+          cartList: cartListDetail.value,
         },
-        // totalPrice:
+        shippingFee: shippingFee.value,
+        totalPrice: total.value,
       };
 
       store.dispatch("orders/orderAction", { data, router });
     };
 
     return {
+      totalPrice,
       userLogin,
-      cartList,
+      cartListDetail,
       orderHandle,
       orderInfomation,
       total,
@@ -397,7 +467,7 @@ td {
 
 .order {
   float: right;
-  margin-right: var(--pd-inline);
+  margin-right: var(--pd-item);
   font-size: 2rem;
   border-radius: var(--border-radius);
   padding: calc(var(--pd-inline) / 2) var(--pd-inline);
